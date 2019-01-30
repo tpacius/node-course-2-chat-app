@@ -10,6 +10,10 @@ class Users {
     }
     addUser(id, name, room) {
         let user = {id, name, room};
+        // console.log(this.getUserList(user.room).includes(user.name));
+        if (this.getUserList(user.room).includes(user.name)) {
+            return 'This username is taken, please use another';
+        }
         this.users.push(user);
         return user;
     }
@@ -33,21 +37,12 @@ class Users {
     }
 }
 
-// class User {
-//     constructor(id, name, room) {
-//         this.id = id;
-//         this.name = name;
-//         this.room = room;
-//     }
-//     // addUser
-// }
+// let users = new Users();
+// users.addUser('1', 'test','test');
+// users.addUser('2', 'test','test');
+// // users.addUser(user1);
+// // users.addUser(user2);
+// console.log(users.getUserList('test'))
+
 
 module.exports = {Users};
-
-//addUser (id, name, room)
-
-//removeUser(id)
-
-//getUser(id)
-
-//getUserList(room)
